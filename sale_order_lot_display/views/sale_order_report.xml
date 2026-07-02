@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_saleorder_document_inherit_lot_display"
+              inherit_id="sale.report_saleorder_document">
+
+        <!-- Variable pour conditionner l'affichage de la colonne -->
+        <xpath expr="//t[@t-set='display_discount']" position="after">
+            <t t-set="display_lots"
+               t-value="any(line.lot_ids_display for line in lines_to_report)"/>
+        </xpath>
+
+        <!-- En-tête de colonne Lot / Série -->
+        <xpath expr="//th[@name='th_description']" position="after">
+            <th name="th_lot_serial" class="text-start" t-if="display_lots">Lot / Série</th>
+        </xpath>
+
+        <!-- Cellule Lot / Série dans chaque ligne produit -->
+        <xpath expr="//td[@name='td_name']" position="after">
+            <td name="td_lot_serial" class="text-start" t-if="display_lots">
+                <span t-field="line.lot_ids_display"/>
+            </td>
+        </xpath>
+
+    </template>
+</odoo>
