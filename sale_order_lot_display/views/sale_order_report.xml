@@ -11,7 +11,7 @@
 
         <!-- En-tête de colonne Lot / Série -->
         <xpath expr="//th[@name='th_description']" position="after">
-            <th name="th_lot_serial" class="text-start" t-if="display_lots">Lot / Série</th>
+            <th name="th_lot_serial" class="text-start" t-if="display_lots">Lot / Série / Qté</th>
         </xpath>
 
         <!-- Cellule Lot / Série dans chaque ligne produit -->

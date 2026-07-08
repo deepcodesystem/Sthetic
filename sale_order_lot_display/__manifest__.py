@@ -19,6 +19,7 @@ mouvements de stock), que la livraison ait été effectuée ou non.
     ],
     'data': [
         'views/sale_order_report.xml',
+        'views/stock_move_line_view.xml',
     ],
     'installable': True,
     'application': False,
