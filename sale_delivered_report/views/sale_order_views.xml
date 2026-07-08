@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_delivered_report_btn" model="ir.ui.view">
+        <field name="name">sale.order.form.delivered.report.btn</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_confirm'][1]" position="after">
+                <button name="%(action_report_saleorder_delivered)d"
+                        type="action"
+                        string="Bon de commande (Qté livrée)"
+                        class="btn-secondary"
+                        invisible="delivery_status not in ('partial', 'full')"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
