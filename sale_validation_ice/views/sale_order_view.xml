@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <div
+                    class="alert alert-warning"
+                    role="alert"
+                    invisible="not ice_missing or state not in ['draft', 'sent']"
+                >
+                    <p class="mb-1">
+                        <i class="fa fa-lg fa-exclamation-triangle" />
+                        Le code ICE du client n'est pas renseigné.
+                        La demande de validation sera bloquée.
+                    </p>
+                    <p class="mb-0">
+                        Veuillez compléter la fiche du client
+                        <field
+                            name="partner_id"
+                            readonly="1"
+                            class="d-inline fw-bold"
+                        />
+                        avant de demander la validation.
+                    </p>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
