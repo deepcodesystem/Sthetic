@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_internal_search_inherit_return_sequence" model="ir.ui.view">
+        <field name="name">stock.picking.internal.search.inherit.return.sequence</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='reception']" position="after">
+                <filter name="incoming_return" string="Receipt Returns"
+                        domain="[('picking_type_code', '=', 'incoming'), ('return_id', '!=', False)]"
+                        help="Receipts created as a return of an existing transfer"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
