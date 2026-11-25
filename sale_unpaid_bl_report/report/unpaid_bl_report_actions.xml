@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_unpaid_bl" model="ir.actions.report">
+        <field name="name">BL impayés</field>
+        <field name="model">unpaid.bl.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sale_unpaid_bl_report.report_unpaid_bl</field>
+        <field name="report_file">sale_unpaid_bl_report.report_unpaid_bl</field>
+        <field name="print_report_name">'BL impayes'</field>
+    </record>
+</odoo>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_unpaid_bl_report_wizard_form" model="ir.ui.view">
+        <field name="name">unpaid.bl.report.wizard.form</field>
+        <field name="model">unpaid.bl.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="BL impayés">
+                <group>
+                    <group string="Période">
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <group string="Filtres">
+                        <field name="partner_ids" widget="many2many_tags"
+                               placeholder="Tous les clients"
+                               options="{'no_create': True}"/>
+                        <field name="company_id" groups="base.group_multi_company"
+                               options="{'no_create': True}"/>
+                    </group>
+                </group>
+                <p class="text-muted">
+                    Liste tous les bons de commande confirmés (BL) dont le reste à payer est positif.
+                    Reste à payer = montant TTC du BL - avoirs - montants réglés sur les factures.
+                </p>
+                <footer>
+                    <button name="action_print_pdf" type="object" string="Imprimer PDF"
+                            class="btn-primary" icon="fa-file-pdf-o"/>
+                    <button name="action_export_xlsx" type="object" string="Exporter Excel"
+                            class="btn-primary" icon="fa-file-excel-o"/>
+                    <button string="Annuler" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_unpaid_bl_report_wizard" model="ir.actions.act_window">
+        <field name="name">BL impayés</field>
+        <field name="res_model">unpaid.bl.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_unpaid_bl_report"
+              name="BL impayés"
+              parent="sale.menu_sale_report"
+              action="action_unpaid_bl_report_wizard"
+              sequence="50"/>
+</odoo>
