@@ -1,0 +1,11 @@
+﻿{
+  "mcpServers": {
+    "odoo-sthetic": {
+      "type": "http",
+      "url": "https://<URL-DE-L-INSTANCE-STHETIC>/mcp",
+      "headers": {
+        "Authorization": "Bearer <CLE-API>"
+      }
+    }
+  }
+}

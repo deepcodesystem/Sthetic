@@ -1,0 +1,5 @@
+﻿.mcp.json
+imports/
+__pycache__/
+*.pyc
+*.zip
